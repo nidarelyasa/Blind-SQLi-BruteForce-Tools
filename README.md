@@ -1,9 +1,3 @@
-![Uploading image.png…]()
-
-
-
-
-
 # Blind SQL Injection – Conditional Responses
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
