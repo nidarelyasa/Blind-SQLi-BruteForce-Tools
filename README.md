@@ -117,7 +117,7 @@ This routes HTTP and HTTPS requests through Burp Suite, allowing requests and re
 Run the script through the VS Code terminal:
 
 ```bash
-python sqli-lab-11.py
+python exploit.py "https://YOUR-LAB-ID.web-security-academy.net/"
 ```
 
 Monitor the generated HTTP requests through:
