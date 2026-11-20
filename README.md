@@ -1,4 +1,3 @@
-
 # Blind SQL Injection – Conditional Responses
 
 A Python-based automation project for practicing **Boolean-Based Blind SQL Injection** using conditional HTTP responses.
@@ -199,6 +198,13 @@ pip install -r requirements.txt
 - Automate security testing using Python.
 - Understand HTTP proxy integration with Burp Suite.
 - Analyze application responses during security testing.
+
+## Limitations
+
+- Designed specifically for the PortSwigger conditional response lab.
+- Requires an active lab instance and valid session cookies.
+- Uses a predefined character range and maximum extraction length.
+- HTTPS certificate verification is disabled for the controlled lab environment.
 
 ## Disclaimer
 
