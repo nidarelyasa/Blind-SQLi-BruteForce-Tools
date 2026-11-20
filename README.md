@@ -1,12 +1,61 @@
 # Blind SQL Injection – Conditional Responses
 
-A Python-based automation project for practicing **Boolean-Based Blind SQL Injection** using conditional HTTP responses.
+[![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Proxy-orange.svg)](https://portswigger.net/burp)
+[![PortSwigger](https://img.shields.io/badge/PortSwigger-Web%20Security%20Academy-green.svg)](https://portswigger.net/web-security)
+[![SQL Injection](https://img.shields.io/badge/SQL%20Injection-Boolean--Based-red.svg)](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses)
+
+> **🎯 Hands-on SQL Injection Practice!**  
+> A Python-based automation project for practicing **Boolean-Based Blind SQL Injection** using conditional HTTP responses.
 
 This project is developed as part of my hands-on learning experience with [PortSwigger Web Security Academy](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses).
 
 The project demonstrates how SQL injection conditions can be evaluated by analyzing differences in HTTP responses, with Python automation and Burp Suite Proxy integration.
 
-## Lab Information
+## 📖 Table of Contents
+
+- [Quick Start](#-quick-start)
+- [Lab Information](#-lab-information)
+- [Project Structure](#-project-structure)
+- [Scripts](#-scripts)
+- [How It Works](#-how-it-works)
+- [Architecture & Workflow](#-architecture--workflow)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [Burp Suite Proxy Configuration](#-burp-suite-proxy-configuration)
+- [Python Proxy Configuration](#-python-proxy-configuration)
+- [Execution](#-execution)
+- [Dependencies](#-dependencies)
+- [Learning Objectives](#-learning-objectives)
+- [Limitations](#-limitations)
+- [Disclaimer](#-disclaimer)
+- [Author](#-author)
+
+## 🚀 Quick Start
+
+Clone the repository and install the required dependencies:
+
+```bash
+git clone https://github.com/nidarelyasa/Blind-SQLi-BruteForce-Tools.git
+cd Blind-SQLi-BruteForce-Tools
+pip install -r requirements.txt
+```
+
+**Run the connection test:**
+
+```bash
+python test_connection.py
+```
+
+**Execute the main script:**
+
+```bash
+python exploit.py "https://YOUR-LAB-ID.web-security-academy.net/"
+```
+
+Make sure Burp Suite is running and the Proxy Listener is active before executing the main script.
+
+## 📋 Lab Information
 
 | Category | Details |
 |---|---|
@@ -18,7 +67,7 @@ The project demonstrates how SQL injection conditions can be evaluated by analyz
 | Proxy | Burp Suite |
 | Testing Environment | VS Code Terminal |
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 Blind-SQLi-BruteForce-Tools/
@@ -30,28 +79,30 @@ Blind-SQLi-BruteForce-Tools/
 └── README.md
 ```
 
-## Scripts
+## 🛠️ Scripts
 
-### 1. test_connection.py
+### 1. `test_connection.py`
 
 A connectivity testing script used to verify communication with the PortSwigger lab.
 
-Features:
+**Features:**
+
 - Sends an HTTP GET request to the lab.
 - Checks the HTTP response status code.
 - Checks the availability of TrackingId and session cookies.
 
-### 2. exploit.py
+### 2. `exploit.py`
 
 The main Python automation script for practicing Boolean-Based Blind SQL Injection.
 
-Features:
+**Features:**
+
 - Sends HTTP requests through Burp Suite Proxy.
 - Injects SQL conditional statements into the TrackingId cookie.
 - Analyzes HTTP responses to identify true or false conditions.
 - Demonstrates character-by-character password extraction in the authorized lab environment.
 
-## How It Works
+## ⚙️ How It Works
 
 The automation follows these steps:
 
@@ -62,58 +113,64 @@ The automation follows these steps:
 5. Uses SQL functions such as `SUBSTRING()` and `ASCII()` to test individual characters.
 6. Demonstrates character-by-character password extraction.
 
-The application response acts as a Boolean indicator:
+**The application response acts as a Boolean indicator:**
 
-- **TRUE:** The expected welcome message appears.
-- **FALSE:** The expected welcome message does not appear.
+| Condition | HTTP Response |
+|---|---|
+| TRUE | The expected welcome message appears. |
+| FALSE | The expected welcome message does not appear. |
 
-## Architecture & Workflow
+## 🏗️ Architecture & Workflow
+
+The following diagram illustrates how the Python automation script communicates with the PortSwigger lab through Burp Suite Proxy.
 
 ```text
 Python Script (VS Code Terminal)
-            |
-            v
-     HTTP Proxy Request
-       127.0.0.1:8080
-            |
-            v
-        Burp Suite
-      Proxy Listener
-            |
-            v
-   PortSwigger Web Security
-       Academy Lab
-            |
-            v
+             |
+             v
+      HTTP Proxy Request
+        127.0.0.1:8080
+             |
+             v
+         Burp Suite
+       Proxy Listener
+             |
+             v
+    PortSwigger Web Security
+         Academy Lab
+             |
+             v
     HTTP Response Analysis
-            |
-            v
-   Password Character Extraction
+             |
+             v
+  Password Character Extraction
 ```
 
-## Requirements
+## 📋 Requirements
 
-- Python 3.x
-- Burp Suite Community or Professional
-- Visual Studio Code
-- An active PortSwigger Web Security Academy lab
+**Required Software:**
 
-## Installation
+- **Python:** Version 3.x
+- **Burp Suite:** Community or Professional
+- **Visual Studio Code:** For running Python scripts
+- **PortSwigger Web Security Academy:** An active lab instance
 
-Clone the repository:
+## 📦 Installation
+
+**Step 1 - Clone the repository**
 
 ```bash
 git clone https://github.com/nidarelyasa/Blind-SQLi-BruteForce-Tools.git
 cd Blind-SQLi-BruteForce-Tools
 ```
 
-Install dependencies:
+**Step 2 - Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Burp Suite Proxy Configuration
+## 🔒 Burp Suite Proxy Configuration
 
 Before running the main Python script:
 
@@ -130,7 +187,7 @@ Port: 8080
 5. Keep Burp Suite running while executing the Python script.
 6. Intercept can remain OFF. Requests will still appear in HTTP History.
 
-## Python Proxy Configuration
+## 🌐 Python Proxy Configuration
 
 The main script uses the following proxy configuration:
 
@@ -143,7 +200,7 @@ PROXIES = {
 
 This routes HTTP and HTTPS requests through Burp Suite, allowing requests and responses to be inspected in HTTP History.
 
-## Execution
+## ▶️ Execution
 
 ### Step 1 - Test Lab Connectivity
 
@@ -177,7 +234,7 @@ Burp Suite → Proxy → HTTP History
 
 Monitor the HTTP requests generated by the Python script.
 
-## Dependencies
+## 📚 Dependencies
 
 The project uses:
 
@@ -190,7 +247,9 @@ Install all dependencies using:
 pip install -r requirements.txt
 ```
 
-## Learning Objectives
+## 🎓 Learning Objectives
+
+Through this project, the following concepts can be explored:
 
 - Understand Boolean-Based Blind SQL Injection.
 - Learn conditional SQL injection techniques.
@@ -199,21 +258,26 @@ pip install -r requirements.txt
 - Understand HTTP proxy integration with Burp Suite.
 - Analyze application responses during security testing.
 
-## Limitations
+## ⚠️ Limitations
 
 - Designed specifically for the PortSwigger conditional response lab.
 - Requires an active lab instance and valid session cookies.
 - Uses a predefined character range and maximum extraction length.
 - HTTPS certificate verification is disabled for the controlled lab environment.
 
-## Disclaimer
+## 🛡️ Disclaimer
 
 This project is intended strictly for educational purposes and authorized security testing within controlled environments, particularly PortSwigger Web Security Academy labs.
 
 Do not use these techniques against systems without explicit authorization.
 
-## Author
+## 👨‍💻 Author
 
 **Nidar Elyasa**
 
 GitHub: [@nidarelyasa](https://github.com/nidarelyasa)
+Email: nidarelyasa5@gmail.com
+
+---
+
+⭐ **If you find this project helpful, please give it a star!**
