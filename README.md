@@ -271,7 +271,7 @@ This project is intended strictly for educational purposes and authorized securi
 
 Do not use these techniques against systems without explicit authorization.
 
-## 👨‍💻 Author
+## Author
 
 **Nidar Elyasa**
 
