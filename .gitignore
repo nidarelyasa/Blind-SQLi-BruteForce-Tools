@@ -221,3 +221,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Local configuration and sensitive data
+.env
+.env.*
+!.env.example
+config.local.py
+cookies.txt
+session.txt
+
+# Local test outputs
+*.log
+*.out
+
+# Local project files
+.vscode/
+
